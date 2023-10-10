@@ -7,3 +7,16 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+# routes:
+
+# foods: index new create destroy
+# recipes: index show edit update destroy => ingredients: index edit update destroy
+# public_recipes: index show
+# general_shopping_list: index
+
+# DB:
+
+# user
+# foods
+# recipe
+# recipe food
