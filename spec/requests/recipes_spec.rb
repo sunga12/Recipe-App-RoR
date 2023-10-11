@@ -13,6 +13,10 @@ RSpec.describe 'Recipes', type: :request do
     it 'renders the right action' do
       expect(response.body).to include('<p>Here is a list of recipes for a given user</p>')
     end
+
+    it 'renders the right action' do
+      expect(response).to render_template('index')
+    end
   end
 
   describe 'GET /show' do
@@ -36,9 +40,9 @@ RSpec.describe 'Recipes', type: :request do
       expect(response.status).to eq(200)
     end
 
-    # it 'renders the right action' do
-    #   expect(response).to render_template('show')
-    # end
+    it 'renders the right action' do
+      expect(response).to render_template('show')
+    end
 
     it 'renders the right action' do
       expect(response.body).to include('<p>Here is a recipe for a given user</p>')
