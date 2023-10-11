@@ -2,7 +2,7 @@
 
 <p>Here is a list of recipes for a given user</p>
 
-<%= button_to "New Recipe", new_user_recipe_path(@user.id) %>
+<%= button_to "New Recipe", new_user_recipe_path(@user.id), method: :get %>
 
 <div>
 <% @recipes.each do |recipe| %>

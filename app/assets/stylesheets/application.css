@@ -14,11 +14,11 @@
  *= require_self
  */
 
- .recipe {
+.recipe {
   border: 3px solid black;
   width: 90%;
   margin: 2% auto;
   padding: 2%;
   display: flex;
   justify-content: space-between;
- }
+}
