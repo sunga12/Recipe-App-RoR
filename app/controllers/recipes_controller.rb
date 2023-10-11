@@ -28,15 +28,12 @@ class RecipesController < ApplicationController
       end
     end
   end
-  
-  def show
-  end
 
-  def edit
-  end
+  def show; end
 
-  def update
-  end
+  def edit; end
+
+  def update; end
 
   def destroy
     @recipe = Recipe.find(params[:id])
@@ -44,7 +41,7 @@ class RecipesController < ApplicationController
     redirect_to recipes_path(user_id: current_user)
   end
 
-  private 
+  private
 
   def recipe_params
     params.require(:recipe).permit(:name, :description, :preparation_time, :cooking_time)

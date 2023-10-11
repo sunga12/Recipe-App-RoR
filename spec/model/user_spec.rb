@@ -1,8 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Recipe, type: :model do
-
-  subject { User.new(name: 'Harry')}
+  subject { User.new(name: 'Harry') }
 
   before { subject.save }
 
@@ -10,5 +9,4 @@ RSpec.describe Recipe, type: :model do
     subject.name = nil
     expect(subject).to_not be_valid
   end
-
 end
