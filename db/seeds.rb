@@ -20,3 +20,13 @@
 # foods
 # recipe
 # recipe food
+
+user1 = User.create!(name: "Admin")
+user2 = User.create!(name: "Default")
+user3 = User.create!(name: "Riz")
+
+
+Food.create!(user: user1, name: "Apple", price: "5")
+Food.create!(user: user1, name: "Orange", price: "2")
+Food.create!(user: user1, name: "chicken breasts", price: "20")
+Food.create!(user: user1, name: "pepper powder", price: "1", measurement_unit: "grams")
