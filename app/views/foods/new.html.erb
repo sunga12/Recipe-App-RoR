@@ -1,0 +1,20 @@
+<h2>Add Food Item</h2>
+<%= form_with model: @food, url: user_foods_path do |f| %>
+    <div class="form-group">
+        <%= f.label :name, { class: "form-label"} %>
+        <%= f.text_field :name, { class: "form-control", placeholder: "Food Name" } %>
+    </div>
+    <div class="form-group">
+        <%= f.label :measurement_unit, { class: "form-label"} %>
+        <%= f.text_field :measurement_unit, { class: "form-control", placeholder: "Measurement Unit" } %>
+    </div>
+    <div class="form-group">
+        <%= f.label :price, { class: "form-label"} %>
+        <%= f.text_field :price, { class: "form-control", placeholder: "Price" } %>
+    </div>
+    <div class="form-group">
+        <%= f.label :quantity, { class: "form-label"} %>
+        <%= f.text_field :quantity, { class: "form-control", placeholder: "Quantity" } %>
+    </div>
+     <%= f.submit "Add Food", class: "btn btn-primary" %>
+<% end %>

@@ -6,16 +6,17 @@ class FoodsController < ApplicationController
 
     def new
         @food = Food.new
+        session[:return_to] ||= request.referer
     end
 
     def create
-        @food = Food.new(food_params)
-        if @food.save
-            flash[:notice] = "The food was saved successfully!"
-            redirect_to user_foods_path(@food.user_id)
+        user = User.find(params[:user_id])
+        food = user.foods.build(food_params)
+        if food.save
+            redirect_to session.delete(:return_to), notice: "The food was saved successfully!"
         else
-            flash.now[:error] = "Could not save the food!"
-            render 'new'
+            flash[:error] = "Could not save the food!"
+            render :new
         end
     end
 
@@ -28,6 +29,6 @@ class FoodsController < ApplicationController
     private
 
     def food_params
-        prarams.require(:food).permit(:name, :measurement_unit, :price, :quantity)
+        params.require(:food).permit(:name, :measurement_unit, :price, :quantity)
     end
 end
