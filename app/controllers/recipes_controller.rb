@@ -2,7 +2,7 @@ class RecipesController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     @recipes = @user.recipes
-    
+
   end
 
   def new
@@ -20,8 +20,7 @@ class RecipesController < ApplicationController
     respond_to do |format|
       format.html do
         if @recipe.save
-          flash[:success] = 'Recipe Saved Successfully!'
-          redirect_to recipes_path(user_id: current_user)
+          redirect_to recipes_path(user_id: current_user), notice: 'The recipe was saved successfully!'
         else
           flash.now[:error] = 'Error: Recipe could not be saved'
           render :new
@@ -39,7 +38,7 @@ class RecipesController < ApplicationController
   def destroy
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
-    redirect_to recipes_path(user_id: current_user)
+    redirect_to recipes_path(user_id: current_user),  notice: 'The food was deleted successfully!'
   end
 
   private
