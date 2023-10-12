@@ -11,8 +11,8 @@
     </div>
     <a href="/recipes/<%= recipe.id %>/">
       <p>
-        Total food items: <%= 4 %><br>
-        Total price: $<%= 100 %>
+        Total food items: <%= recipe.recipe_foods.count %><br>
+        Total price: $<%= recipe_price(recipe) %>
         </p>
     </a>
   </div>
