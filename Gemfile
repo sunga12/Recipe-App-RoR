@@ -62,4 +62,9 @@ group :development do
   # gem "spring"
 end
 
+# bootstrap gems
+gem 'bootstrap'
+gem 'sassc-rails'
+
+# devise gem
 gem 'devise', '~> 4.9'

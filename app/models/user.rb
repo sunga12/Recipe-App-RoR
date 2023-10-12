@@ -6,12 +6,12 @@ class User < ApplicationRecord
          :confirmable
 
   # Associations
-  has_many :foods, foreign_key: :user_id
-  has_many :recipes, foreign_key: :user_id
+  has_many :foods, foreign_key: :user_id, dependent: :destroy
+  has_many :recipes, foreign_key: :user_id, dependent: :destroy
 
   # Attributes
   attribute :name, :string
 
   # Validations
-  validates :name, presence: true
+  validates :name, presence: true, length: { maximum: 250 }
 end
