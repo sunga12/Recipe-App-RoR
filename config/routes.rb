@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :users, only:[:index], shallow: true do
     resources :foods, only: [:index, :create, :new, :destroy]
     resources :recipes
@@ -8,5 +9,5 @@ Rails.application.routes.draw do
     resources :general_shopping_list, only: [:index]
   end
   resources :public_recipes, only: [:index]
-  root "users#index"
+  root to: "public_recipes#index"
 end

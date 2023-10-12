@@ -2,6 +2,7 @@
 
 <p>Here is a list of recipes for a given user</p>
 
+<%= render "devise/shared/logout" %><br>
 <%= button_to "New Recipe", new_user_recipe_path(@user.id), method: :get %>
 
 <div>
