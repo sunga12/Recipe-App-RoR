@@ -5,11 +5,11 @@ class Ability
     # Define abilities for the passed in user here. For example:
 
     # user ||= User.new # guest user (not logged in)
-      # if user.admin?
-        # can :read, Recipe, public: true
+    # if user.admin?
+    # can :read, Recipe, public: true
 
-        # can :manage, Recipe, user_id: user.id
-        # can :manage, Food, user_id: user.id
+    # can :manage, Recipe, user_id: user.id
+    # can :manage, Food, user_id: user.id
     #   else
     #     can :read, :all
     #   end
@@ -33,15 +33,15 @@ class Ability
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
 
     user ||= User.new # guest user (not logged in)
-      if user.persisted? # Check if the user is logged in and has an ID
-        can :read, Recipe, user_id: user.id
-        can :manage, Recipe, user_id: user.id
-        cannot :read, Recipe, public: false
+    if user.persisted? # Check if the user is logged in and has an ID
+      can :read, Recipe, user_id: user.id
+      can :manage, Recipe, user_id: user.id
+      cannot :read, Recipe, public: false
 
-        can :read, Food, user_id: user.id
-        can :manage, Food, user_id: user.id
-      else
-        can :read, Recipe, public: true            
-      end
+      can :read, Food, user_id: user.id
+      can :manage, Food, user_id: user.id
+    else
+      can :read, Recipe, public: true
+    end
   end
 end

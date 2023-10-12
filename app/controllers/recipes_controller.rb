@@ -2,7 +2,6 @@ class RecipesController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     @recipes = @user.recipes
-
   end
 
   def new
@@ -38,7 +37,7 @@ class RecipesController < ApplicationController
   def destroy
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
-    redirect_to recipes_path(user_id: current_user),  notice: 'The food was deleted successfully!'
+    redirect_to recipes_path(user_id: current_user), notice: 'The food was deleted successfully!'
   end
 
   private
