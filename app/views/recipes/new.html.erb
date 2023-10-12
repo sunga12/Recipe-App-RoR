@@ -1,0 +1,22 @@
+<h2>New Recipe</h2>
+
+<%= render "devise/shared/logout" %><br>
+<div>
+
+<%= form_with model: @recipe, method: :post, url: user_recipes_path do |form| %>
+  <%= form.label :name %><br>
+  <%= form.text_field :name %><br>
+
+  <%= form.label :description %><br>
+  <%= form.text_field :description %><br>
+
+  <%= form.label :preparation_time %><br>
+  <%= form.text_field :preparation_time %><br>
+
+  <%= form.label :cooking_time %><br>
+  <%= form.text_field :cooking_time %><br>
+
+  <%= form.submit "Create Recipe" %><br>
+  <%end%>
+
+  </div>
