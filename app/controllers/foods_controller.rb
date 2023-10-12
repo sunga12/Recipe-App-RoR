@@ -6,7 +6,7 @@ class FoodsController < ApplicationController
 
   def new
     @food = Food.new
-    session[:return_to] ||= request.referer
+    session[:return_to] = request.referer
   end
 
   def create
