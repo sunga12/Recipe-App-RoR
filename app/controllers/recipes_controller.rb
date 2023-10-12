@@ -20,7 +20,7 @@ class RecipesController < ApplicationController
       format.html do
         if @recipe.save
           flash[:success] = 'Recipe Saved Successfully!'
-          redirect_to recipes_path(user_id: current_user)
+          redirect_to recipe_path(@recipe)
         else
           flash.now[:error] = 'Error: Post could not be saved'
           render :new
