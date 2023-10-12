@@ -60,6 +60,6 @@ group :development do
   # gem "spring"
 end
 
-#bootstrap gems
-gem "bootstrap"
-gem "sassc-rails"
+# bootstrap gems
+gem 'bootstrap'
+gem 'sassc-rails'
