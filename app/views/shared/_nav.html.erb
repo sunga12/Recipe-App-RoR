@@ -32,7 +32,8 @@
           </li>
         </ul>
         <div class="d-flex">
-          <%= button_to "Log out", destroy_user_session_path, method: :delete, class: 'btn btn-outline-danger' %>
+          <%= button_to "My Shopping List", destroy_user_session_path, method: :delete, class: 'btn btn-outline-primary me-4' %>
+          <%= button_to "Log Out", destroy_user_session_path, method: :delete, class: 'btn btn-outline-danger' %>
         </div>
       <% end %>
     </div>
