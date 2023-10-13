@@ -1,1 +1,15 @@
-<p>Here is a recipe for a given user</p>
+<div class="jumbotron">
+
+  <div class="d-flex justify-content-between align-items-center">
+  <h1 class="display-4">
+    <%= @recipe.name %>
+  </h1>
+  <%= render 'public_btn', recipe: @recipe %>
+    </div>
+  <p class="lead">
+   Preparation time: <%= @recipe.preparation_time %><small>hrs</small>  |  Cooking time: <%= @recipe.cooking_time %><small>hrs</small>
+  </p>
+  <p><%= @recipe.description %></p>
+  <br/>
+  <%= render 'recipe_foods_table', locals: { recipe: @recipe, recipe_foods: @recipe_foods} %>
+</div>
