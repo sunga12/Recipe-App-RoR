@@ -1,0 +1,41 @@
+<% if @food_list.empty?%>
+
+  <p class="text-secondary mb-1">You don't have any food items available to add! Try
+    <%= link_to "adding food items", new_user_food_path(current_user) %>.</p>
+  
+  <br/>
+<% else %>
+
+  <table class="table table-hover table-striped table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">Food</th>
+        <th scope="col">Units</th>
+        <th scope="col">Price</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @food_list.each do |item| %>
+        <tr>
+          <td><%= item.name%></td>
+          <td><%= item.quantity%><%= item.measurement_unit%></td>
+          <td>$<%= item.price%></td>
+          <%= form_with(model: @recipe_food) do |f| %>
+            <%= f.hidden_field :food_id, value: item.id %>
+            <%= f.hidden_field :recipe_id, value: @recipe_id %>
+            <td>
+              <%= f.number_field :quantity, class: "form-control" %>
+            </td>
+            <td>
+            <%= f.submit @recipe_food.id ? "Update" : "Add", class: "btn btn-dark" %>
+            </td>
+
+          <% end %>
+        </tr>
+      <%end%>
+    </tbody>
+  </table>
+
+<% end %>

@@ -1,7 +1,7 @@
 class Recipe < ApplicationRecord
   # Associations
-  has_many :recipe_foods, foreign_key: :recipe_id
-  belongs_to :user, class_name: 'User', foreign_key: :user_id
+  belongs_to :user
+  has_many :recipe_foods, foreign_key: :recipe_id, dependent: :destroy
 
   # Attributes
   attribute :name, :string

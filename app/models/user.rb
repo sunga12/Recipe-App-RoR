@@ -14,4 +14,13 @@ class User < ApplicationRecord
 
   # Validations
   validates :name, presence: true, length: { maximum: 250 }
+
+  def filtered_food_list
+    list = []
+    foods.each do |food|
+      list << [food.name, food.id]
+    end
+
+    list
+  end
 end

@@ -2,6 +2,7 @@
   <thead class="table-dark">
     <tr>
       <th scope="col">Food</th>
+      <th scope="col">Available Units</th>
       <th scope="col">Measurement Unit</th>
       <th scope="col">Unit Price</th>
       <th scope="col">Actions</th>
@@ -11,6 +12,7 @@
     <% @foods.each do |item| %>
       <tr>
         <td><%= item.name%></td>
+        <td><%= item.quantity%></td>
         <td><%= item.measurement_unit%></td>
         <td>$<%= item.price%></td>
         <th scope="row">
@@ -20,4 +22,4 @@
     <%end%>
   </tbody>
 </table>
-<%= button_to "Add Food", new_user_food_path(@user.id), method: :get, class: ["btn btn-secondary"] %>
+<%= button_to "Add Food", new_user_food_path(@user.id), method: :get, class: "btn btn-dark" %>
