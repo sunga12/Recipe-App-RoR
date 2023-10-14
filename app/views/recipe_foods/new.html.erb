@@ -1,0 +1,7 @@
+<h1>Add Ingredients From Your Food List</h1>
+<br/>
+
+<%= render "form", recipe_food: @recipe_food %>
+<br/>
+
+<%= button_to "Back to Recipe", recipe_path(@recipe_food.recipe_id), method: :get, class: "btn btn-secondary" %>

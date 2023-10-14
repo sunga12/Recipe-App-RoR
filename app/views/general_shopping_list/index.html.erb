@@ -1,0 +1,15 @@
+<div class="jumbotron">
+  <h1 class="display-4">Shopping List</h1>
+
+  <p class="lead">
+   Items to buy: <%= @list[:totals][0] %>  |  Total cost: $<%= @list[:totals][1] %>
+  </p>
+  <br/>
+
+  <% if @list[:shoping_list].empty? %>
+    <p class="text-primary">Your shopping list is empty!</p>
+  <% else %>
+    <%= render 'shopping_list_table', list:  @list[:shoping_list] %>
+  <% end %>
+
+</div>

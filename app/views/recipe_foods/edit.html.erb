@@ -1,0 +1,7 @@
+<h1>Editing Recipe Ingredients</h1>
+<br/>
+
+<%= render "form", recipe_food: @recipe_food %>
+<br/>
+
+<%= button_to "Cancel", recipe_path(@recipe_food.recipe_id), method: :get, class: "btn btn-secondary" %>

@@ -1,0 +1,27 @@
+<h1>Recipes</h1>
+
+<p>Here is a list of recipes for a given user</p>
+<br>
+
+<%= button_to "New Recipe", new_user_recipe_path(@user.id), method: :get %>
+
+<% if current_user == @user %>
+  <div>
+    <% @recipes.each do |recipe| %>
+      <div class="recipe">
+        <div>
+          <p><a href="/recipes/<%= recipe.id %>/"> <%= recipe.name %> </a></p>
+          <% if can? :manage, recipe %>
+          <%= button_to "REMOVE", recipe_path(recipe.id), method: :delete, data: {confirm: "Are you sure you want to delete this recipe?"} %>
+          <% end %>
+        </div>
+        <p><a href="/recipes/<%= recipe.id %>/"> <%= recipe.description %> </a></p>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <div class="recipe">
+    <p>Unavaliable to you. Please log in as correct user to access.</p>
+  </div>
+<% end %>
+        

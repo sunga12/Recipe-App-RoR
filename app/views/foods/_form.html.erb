@@ -1,0 +1,26 @@
+<%= form_with(model: food, url: user_foods_path, local: true) do |f| %>
+   <div class="form-group">
+        <%= f.label :name%>
+        <%= f.text_field :name, class: "form-control", placeholder: "Name" %>
+    </div>
+    <br/>
+
+    <div class="form-group">
+        <%= f.label :measurement_unit %>
+        <%= f.text_field :measurement_unit, class: "form-control", placeholder: "Measurement Unit"  %>
+    </div>
+    <br/>
+
+    <div class="form-group">
+        <%= f.label :price %>
+        <%= f.text_field :price,  class: "form-control", placeholder: "Price"  %>
+    </div>
+    <br/>
+
+    <div class="form-group">
+        <%= f.label :quantity %>
+        <%= f.text_field :quantity,  class: "form-control", placeholder: "Quantity"  %>
+    </div>
+    <br/>
+     <%= f.submit "Add Food", class: "btn btn-dark" %>
+<% end %>
