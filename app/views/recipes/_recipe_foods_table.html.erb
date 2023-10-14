@@ -1,0 +1,41 @@
+<% if @recipe_foods.empty?%>
+  <p class="text-primary">No ingredients added yet!</p>
+
+<% else %>
+  <table class="table table-hover table-striped table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">Food</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Value</th>
+        <% if can? :manage, @recipe %>
+          <th scope="col">Actions</th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% @recipe_foods.includes(:food).each do |item| %>
+        <tr>
+          <td><%= item.food.name%></td>
+          <td><%= item.quantity%> <%= item.food.measurement_unit%></td>
+          <td>$<%= item.food.price * item.quantity%></td>
+          <% if can? :manage, @recipe %>
+            <th scope="row d-flex ">
+                <%= link_to "Modify", edit_recipe_food_path(item) %>
+                <%= link_to "Delete", recipe_food_path(item), method: :delete, data: {turbo_method: :delete} %>
+            </th>
+          <% end %>
+          
+        </tr>
+      <%end%>
+    </tbody>
+  </table>
+
+<% end %>
+
+
+<br/>
+
+<% if can? :manage, @recipe %>
+  <%= button_to "Add Ingredient", new_recipe_recipe_food_path(@recipe), method: :get, class: "btn btn-dark" %>
+<% end %>

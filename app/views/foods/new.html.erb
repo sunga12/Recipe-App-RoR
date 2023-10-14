@@ -3,4 +3,4 @@
 <%= render 'form', food: @food %>
 
 <br/>
-<%= link_to 'Back', user_foods_path(current_user.id), class:"btn btn-dark" %>
+<%= link_to 'Cancel', session.delete(:referer), class:"btn btn-secondary" %>

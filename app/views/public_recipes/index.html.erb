@@ -1,20 +1,19 @@
 <h1> Public Recipes</h1>
 
 <p>Here is a list of public recipes from all users</p>
-<%= render "/devise/shared/logout" %>
 <div>
   <% @recipes.each do |recipe| %>
-  <div class="recipe">
-    <div>
-      <p><a href="/recipes/<%= recipe.id %>/"> <%= recipe.name %> </a></p>
-      <p>By: <%= recipe.user.name %></p>
-    </div>
-    <a href="/recipes/<%= recipe.id %>/">
-      <p>
-        Total food items: <%= recipe.recipe_foods.count %><br>
-        Total price: $<%= recipe_price(recipe) %>
+    <div class="recipe">
+      <div>
+        <p><a href="/recipes/<%= recipe.id %>/"> <%= recipe.name %> </a></p>
+        <p>By: <%= recipe.user.name %></p>
+      </div>
+      <a href="/recipes/<%= recipe.id %>/">
+        <p>
+          Total food items: <%= recipe.totals[:quantity] %><br>
+          Total price: $<%= recipe.totals[:price] %>
         </p>
-    </a>
-  </div>
+      </a>
+    </div>
   <% end %>
 </div>
