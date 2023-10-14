@@ -13,10 +13,11 @@ class FoodsController < ApplicationController
     user = User.find(params[:user_id])
     food = user.foods.build(food_params)
     if food.save
-      redirect_to session.delete(:referer) || user_foods_path(current_user), notice: 'The food was saved successfully!'
+      redirect_to session.delete(:referer) || new_user_food_path(current_user),
+                  notice: 'The food was saved successfully!'
     else
       flash[:error] = 'Could not save the food!'
-      render :new
+      redirect_to new_user_food_path(current_user)
     end
   end
 
