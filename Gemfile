@@ -68,3 +68,6 @@ gem 'sassc-rails'
 
 # devise gem
 gem 'devise', '~> 4.9'
+
+# Authorization
+gem 'cancancan', '~> 1.9'
