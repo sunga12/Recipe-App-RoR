@@ -45,7 +45,7 @@ RSpec.describe 'Recipes', type: :request do
     end
 
     it 'renders the right action' do
-      expect(response.body).to include('<p>Here is a recipe for a given user</p>')
+      expect(response.body).to include('<p>Cooking Time</p>')
     end
   end
 end
