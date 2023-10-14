@@ -21,7 +21,6 @@ class RecipeFoodsController < ApplicationController
     @recipe_food = RecipeFood.find(params[:id])
     @recipe_id = @recipe_food.recipe_id
     @food_list = Food.where(id: @recipe_food.food_id)
-    @edit = true
   end
 
   # PATCH/PUT /recipe_foods/1

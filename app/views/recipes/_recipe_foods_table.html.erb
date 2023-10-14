@@ -7,7 +7,7 @@
     <thead class="table-dark">
       <tr>
         <th scope="col">Food</th>
-        <th scope="col">Quantitys</th>
+        <th scope="col">Quantity</th>
         <th scope="col">Value</th>
         <th scope="col">Actions</th>
       </tr>
@@ -17,7 +17,7 @@
         <tr>
           <td><%= item.food.name%></td>
           <td><%= item.quantity%> <%= item.food.measurement_unit%></td>
-          <td>$<%= (item.food.price/item.food.quantity) * item.quantity%></td>
+          <td>$<%= item.food.price * item.quantity%></td>
           <th scope="row d-flex ">
               <%= link_to "Modify", edit_recipe_food_path(item) %>
               <%= link_to "Delete", recipe_food_path(item), method: :delete, data: {turbo_method: :delete} %>

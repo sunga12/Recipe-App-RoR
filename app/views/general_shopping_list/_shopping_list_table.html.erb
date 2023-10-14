@@ -1,0 +1,18 @@
+  <table class="table table-hover table-striped table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">Food</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% list.each do |_, item| %>
+        <tr>
+          <td><%= item[:name] %></td>
+          <td><%= item[:quantity] - item[:available] %> <%= item[:unit] %></td>
+          <td>$<%= item[:price] * (item[:quantity] - item[:available]) %></td>
+        </tr>
+      <%end%>
+    </tbody>
+  </table>
