@@ -2,6 +2,11 @@
   <p class="text-primary">No foods added yet!</p>
 
 <% else %>
+  <div class="d-flex justify-content-end"> 
+  <%= button_to "Add Food", new_user_food_path(@user.id), method: :get, class: "btn btn-dark" %>
+  </div>
+  <br/>
+
   <table class="table table-hover table-striped table-bordered">
     <thead class="table-dark">
       <tr>
@@ -27,6 +32,3 @@
     </tbody>
   </table>
 <% end %>
-<br/>
-
-<%= button_to "Add Food", new_user_food_path(@user.id), method: :get, class: "btn btn-dark" %>
