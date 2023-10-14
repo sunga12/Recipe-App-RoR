@@ -2,6 +2,15 @@
   <p class="text-primary">No ingredients added yet!</p>
 
 <% else %>
+
+<% if can? :manage, @recipe %>
+  <div class="d-flex justify-content-between">
+    <%= button_to "Generate Shopping List", general_shopping_list_index_path, method: :get, class: 'btn btn-outline-primary me-4' %>
+    <%= button_to "Add Ingredient", new_recipe_recipe_food_path(@recipe), method: :get, class: "btn btn-dark" %>
+  </div>
+  <br/>
+<% end %>
+
   <table class="table table-hover table-striped table-bordered">
     <thead class="table-dark">
       <tr>
@@ -35,7 +44,3 @@
 
 
 <br/>
-
-<% if can? :manage, @recipe %>
-  <%= button_to "Add Ingredient", new_recipe_recipe_food_path(@recipe), method: :get, class: "btn btn-dark" %>
-<% end %>
