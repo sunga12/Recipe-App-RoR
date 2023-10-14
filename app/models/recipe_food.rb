@@ -1,7 +1,7 @@
 class RecipeFood < ApplicationRecord
   # Associations
-  has_many :foods, class_name: 'Food', foreign_key: :food_id
-  has_many :recipe, class_name: 'Recipe', foreign_key: :recipe_id
+  belongs_to :recipe
+  belongs_to :food
 
   # Attributes
   attribute :quantity, :integer

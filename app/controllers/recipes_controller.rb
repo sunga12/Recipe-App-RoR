@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   def index
-    @user = User.find(params[:user_id])
+    @user = User.find(current_user.id)
     @recipes = @user.recipes
   end
 
@@ -28,11 +28,19 @@ class RecipesController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @recipe = Recipe.find(params[:id])
+    @recipe_foods = @recipe.recipe_foods
+  end
 
-  def edit; end
-
-  def update; end
+  def update
+    @recipe = Recipe.find(params[:id])
+    if @recipe.update(recipe_public_params)
+      redirect_to recipe_path(@recipe), notice: 'Public status has been changed successfully.'
+    else
+      render :show, status: :unprocessable_entity
+    end
+  end
 
   def destroy
     @recipe = Recipe.find(params[:id])
@@ -44,5 +52,9 @@ class RecipesController < ApplicationController
 
   def recipe_params
     params.require(:recipe).permit(:name, :description, :preparation_time, :cooking_time)
+  end
+
+  def recipe_public_params
+    params.require(:recipe).permit(:public)
   end
 end

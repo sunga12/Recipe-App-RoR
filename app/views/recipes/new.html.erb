@@ -1,7 +1,6 @@
 <h2>New Recipe</h2>
-
+<br>
 <div>
-
 <%= form_with model: @recipe, method: :post, url: user_recipes_path do |form| %>
   <%= form.label :name %><br>
   <%= form.text_field :name %><br>
@@ -17,5 +16,4 @@
 
   <%= form.submit "Create Recipe" %><br>
   <%end%>
-
-  </div>
+</div>

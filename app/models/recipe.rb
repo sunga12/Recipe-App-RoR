@@ -16,4 +16,13 @@ class Recipe < ApplicationRecord
   validates :preparation_time, presence: true, numericality: { greater_than_or_equal_to: 0, only_float: true }
   validates :cooking_time, presence: true, numericality: { greater_than_or_equal_to: 0, only_float: true }
   validates :public, inclusion: [true, false]
+
+  def totals
+    recipe_foods.includes(:food).reduce({ price: 0, quantity: 0 }) do |acc, hash|
+      {
+        price: acc[:price] + hash.food.price,
+        quantity: acc[:quantity] + hash[:quantity]
+      }
+    end
+  end
 end

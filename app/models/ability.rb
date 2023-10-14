@@ -43,5 +43,8 @@ class Ability
     else
       can :read, Recipe, public: true
     end
+#     can :read, :all
+#     return unless user.present?
+
   end
 end
