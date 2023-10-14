@@ -1,6 +1,5 @@
 <% if @recipe_foods.empty?%>
-
-  <p class="text-primary">You didn't add any ingredients yet!</p>
+  <p class="text-primary">No ingredients added yet!</p>
 
 <% else %>
   <table class="table table-hover table-striped table-bordered">
@@ -9,7 +8,9 @@
         <th scope="col">Food</th>
         <th scope="col">Quantity</th>
         <th scope="col">Value</th>
-        <th scope="col">Actions</th>
+        <% if can? :manage, @recipe %>
+          <th scope="col">Actions</th>
+        <% end %>
       </tr>
     </thead>
     <tbody>
@@ -18,10 +19,13 @@
           <td><%= item.food.name%></td>
           <td><%= item.quantity%> <%= item.food.measurement_unit%></td>
           <td>$<%= item.food.price * item.quantity%></td>
-          <th scope="row d-flex ">
-              <%= link_to "Modify", edit_recipe_food_path(item) %>
-              <%= link_to "Delete", recipe_food_path(item), method: :delete, data: {turbo_method: :delete} %>
-          </th>
+          <% if can? :manage, @recipe %>
+            <th scope="row d-flex ">
+                <%= link_to "Modify", edit_recipe_food_path(item) %>
+                <%= link_to "Delete", recipe_food_path(item), method: :delete, data: {turbo_method: :delete} %>
+            </th>
+          <% end %>
+          
         </tr>
       <%end%>
     </tbody>
@@ -31,4 +35,7 @@
 
 
 <br/>
-<%= button_to "Add Ingredient", new_recipe_recipe_food_path(@recipe), method: :get, class: "btn btn-dark" %>
+
+<% if can? :manage, @recipe %>
+  <%= button_to "Add Ingredient", new_recipe_recipe_food_path(@recipe), method: :get, class: "btn btn-dark" %>
+<% end %>

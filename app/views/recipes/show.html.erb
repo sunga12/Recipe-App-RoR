@@ -1,11 +1,13 @@
 <div class="jumbotron">
 
   <div class="d-flex justify-content-between align-items-center">
-  <h1 class="display-4">
-    <%= @recipe.name %>
-  </h1>
-  <%= render 'public_btn', recipe: @recipe %>
-    </div>
+    <h1 class="display-4">
+      <%= @recipe.name %>
+    </h1>
+    <% if can? :manage, @recipe %>
+      <%= render 'public_btn', recipe: @recipe %>
+    <% end %>
+  </div>
   <p class="lead">
    Preparation time: <%= @recipe.preparation_time %><small>hrs</small>  |  Cooking time: <%= @recipe.cooking_time %><small>hrs</small>
   </p>
