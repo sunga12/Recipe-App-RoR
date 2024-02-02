@@ -38,5 +38,15 @@ module RecipeAppRoR
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins "http://localhost:3001", "http://127.0.0.1:3001", "https://recipe-app-fydl.onrender.com"
+    
+        resource "*",
+          headers: :any,
+          methods: [:get, :post, :put, :patch, :delete, :options, :head]
+      end
+    end
   end
 end
