@@ -121,6 +121,7 @@ GEM
       ruby2_keywords
     erubi (1.12.0)
     execjs (2.9.1)
+    ffi (1.16.3)
     ffi (1.16.3-x64-mingw-ucrt)
     globalid (1.2.1)
       activesupport (>= 6.1)
@@ -165,11 +166,14 @@ GEM
     nio4r (2.7.0)
     nokogiri (1.16.0-x64-mingw-ucrt)
       racc (~> 1.4)
+    nokogiri (1.16.0-x86_64-linux)
+      racc (~> 1.4)
     orm_adapter (0.5.0)
     parallel (1.24.0)
     parser (3.3.0.5)
       ast (~> 2.4.1)
       racc
+    pg (1.5.4)
     pg (1.5.4-x64-mingw-ucrt)
     popper_js (2.11.8)
     psych (5.1.2)
@@ -322,6 +326,7 @@ GEM
 
 PLATFORMS
   x64-mingw-ucrt
+  x86_64-linux
 
 DEPENDENCIES
   bootsnap
